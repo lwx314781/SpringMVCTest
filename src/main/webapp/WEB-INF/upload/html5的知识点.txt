@@ -1,0 +1,3 @@
+html5的知识点
+1. input和textarea中placeholder属性，用来提示输入框
+2. input中type为file的属性multiple  表示可以上传多个文件

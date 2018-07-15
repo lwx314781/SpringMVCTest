@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/p
+    http://www.springframework.org/schema/p/spring-p-4.3.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd ">
+    
+<!--     注解申明 -->
+    <context:annotation-config />
+    
+<!--      容器自动扫描IOC组件 -->
+    <context:component-scan base-package="com.yongcheng.liuyang.service.impl" />
+    <context:component-scan base-package="com.yongcheng.liuyang.dao" />
+    <context:component-scan base-package="com.yongcheng.liuyang.utils" />
+    
+<!--     加载配置文件 -->
+    <context:property-placeholder location="classpath*:config/db.properties"/>
+    
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+         <property name="driverClass" value="${driver}"></property>
+        <property name="jdbcUrl" value="${url}"></property>
+        <property name="user" value="${user}"></property>
+        <property name="password" value="${pass}"></property>
+        <property name="acquireIncrement" value="${acquireIncrement}"></property>
+        <property name="initialPoolSize" value="${initialPoolSize}"></property>
+        <property name="minPoolSize" value="${minPoolSize}"></property>
+        <property name="maxPoolSize" value="${maxPoolSize}"></property>
+    </bean>
+    
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:config/mybatis-config.xml"></property>
+    </bean>
+    
+<!--     扫描所有报dao包下的mapper -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.yongcheng.liuyang.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+    </bean>  
+    
+    <!--声明事务管理 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <!--支持事务注解驱动 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/> 
+    
+     
+<!--     aspectj支持自动代理实现AOP功能  -->
+<!--     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy> -->
+       
+       
+    <!--增加国际化资源文件-->
+<!--     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"> -->
+<!--     国际化信息所在的文件名                      -->
+<!--     <property name="basename" value="spring_resource/messages" />    -->
+<!--     如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称                 -->
+<!--     <property name="useCodeAsDefaultMessage" value="true" /> -->
+<!--     <property name="cacheSeconds" value="0"></property> -->
+<!--     <property name="defaultEncoding" value="UTF-8"></property> -->
+<!--     </bean>  -->
+<!--     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean> -->
+
+    <!-- 支持shrio -->
+    <import resource="spring-shiro.xml"/>
+    
+</beans>

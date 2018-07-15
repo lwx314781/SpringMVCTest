@@ -1,0 +1,21 @@
+java的高并发的基本内容
+ThreadPoolExecutor 是Executor的最顶层的实现类
+有4个状态RUNNING SHUTDOWN STOP  TERMINATED      
+几个重要的变量 
+/任务缓存队列，用来保存等待中的任务，等待worker线程空闲时执行任务
+private final BlockQueue<Runnable> workQueue 
+//更新 poolSize, corePoolSize,maximumPoolSize, runState, and workers set 时需要持有这个锁
+private final ReentrantLock mainLock = new ReentrantLock();
+//用来保存工作中的执行线程
+private final HashSet<Worker> workers = new HashSet<Worker>();
+/超过corePoolSize外的线程空闲存活之间
+private volatile long keepAliveTime;
+//线程池中的当前线程数
+private volatile int poolSize;
+//任务拒绝策略
+private volatile RejectedExecutionHandler handler;
+private long completedTaskCount; //已经执行完的线程数
+
+LinkedBlockingQueue是基于BlockingQueue接口实现的，LinkedBlockingQueue之所以能够高效的处理并发数据，
+还因为其对于生产者端和消费者端分别采用了独立的锁来控制数据同步，
+这也意味着在高并发的情况下生产者和消费者可以并行地操作队列中的数据，以此来提高整个队列的并发性能
