@@ -3,5 +3,5 @@ encoding//src/main/resources/log4j.properties=UTF-8
 encoding//src/main/resources/spring_resource=UTF-8
 encoding//src/main/resources/spring_resource/messages_en_US.properties=utf-8
 encoding//src/main/resources/spring_resource/messages_zh_CN.properties=utf-8
-encoding//src/main/webapp/jsp/common.jsp=UTF-8
-encoding//src/main/webapp/jsp/uploadSuccess.jsp=UTF-8
+encoding//src/main/webapp/jsp/login.jsp=UTF-8
+encoding//src/main/webapp/jsp/register.jsp=UTF-8

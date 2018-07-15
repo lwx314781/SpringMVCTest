@@ -3,91 +3,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta content="X-UA-Compatible" content="IE=edge">
-<title>某东-欢迎登录</title>
-<link href="css/bootstrap.min.css" rel="stylesheet"> 
-<script type="text/javascript" src="3rd/bootstrap.min.js"></script>
-
-<style type="text/css">
-body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
-}
-
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px 10px 10px 50px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: 20px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-.login-label{
-    position: absolute;
-    z-index: 3;
-    width: 45px;
-    height: 45px;
-    background: #ddd;
-    color: #fff;
-    line-height: 30px;
-    padding: 15px;
-    text-align: center;
-}
-
-</style>
-
-
+		<title>登录界面</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<script type="text/javascript" src="../3rd/jquery-3.2.1.min.js" ></script>
 </head>
-
-
-<body>
-   <div class="container">
-     <form class="form-signin">
-       <h2 class="form-signin-heading">请登录</h2>
-       <label for="inputEmail" class="login-label">
-           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-       </label>
-       <input type="email" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
-       <label for="inputPassword" class="login-label" >
-            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-       </label>
-       <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
-       <div class="checkbox">
-         <label>
-           <input type="checkbox" value="remember-me"> Remember me
-         </label>
-       </div>
-       <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-     </form>
-   </div> 
-</body>
-<script type="text/javascript" src="js/login.js"></script>
+	
+	<body>
+		<div class="wrap login_wrap">
+			<div class="content">
+				<div class="logo"></div>
+				<div class="login_box">	
+					
+					<div class="login_form">
+						<div class="login_title">
+							登录
+						</div>
+						<form action="#" method="post">
+							
+							<div class="form_text_ipt">
+								<input name="username" type="text" placeholder="手机号/邮箱">
+							</div>
+							<div class="ececk_warning"><span>手机号/邮箱不能为空</span></div>
+							<div class="form_text_ipt">
+								<input name="password" type="password" placeholder="密码">
+							</div>
+							<div class="ececk_warning"><span>密码不能为空</span></div>
+							<div class="form_check_ipt">
+								<div class="left check_left">
+									<label><input name="" type="checkbox"> 下次自动登录</label>
+								</div>
+								<div class="right check_right">
+									<a href="#">忘记密码</a>
+								</div>
+							</div>
+							<div class="form_btn">
+								<button type="button" onclick="javascript:window.location.href='#'">登录</button>
+							</div>
+							<div class="form_reg_btn">
+								<span>还没有帐号？</span><a href="register.html">马上注册</a>
+							</div>
+						</form>
+						<div class="other_login">
+							<div class="left other_left">
+								<span>其它登录方式</span>
+							</div>
+							<div class="right other_right">
+								<a href="#"><i class="fa fa-qq fa-2x"></i></a>
+								<a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+								<a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -1,15 +1,30 @@
 package com.yongcheng.liuyang.dao;
 
-import java.util.Set;
-
 import org.springframework.stereotype.Repository;
 
-import com.yongcheng.liuyang.model.User;
+import com.yongcheng.liuyang.model.AccountInfo;
 
+/**
+ * 用户信息的增删改查mapper
+ * 
+ * @author 刘洋
+ */
 @Repository(value="userMapper")
 public interface UserMapper {
     
-    public User queryUserByName(String userName);
+	 /**
+     * 用户注册
+     * 
+     * @param user 当前用户信息
+     */
+    public void insertUserInfo(AccountInfo user);
+	
+    /**
+     * 根据用户名Id获取对应的密码
+     * 
+     * @param userName
+     * @return
+     */
+    public String queryPasswordByUserId(String userName);
     
-    public Set<String> queryRolesByName(String userName);
 }
