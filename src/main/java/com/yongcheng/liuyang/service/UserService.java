@@ -24,4 +24,12 @@ public interface UserService
 	 */
 	public String getAccountInfoByUserId(String userId);
     
+	/**
+	 * 用户注册时，对输入的用户名进行合法校验
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public boolean validateUserIsLegal(String name);
+	
 }

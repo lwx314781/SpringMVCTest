@@ -9,7 +9,7 @@ import com.yongcheng.liuyang.model.AccountInfo;
  * 
  * @author 刘洋
  */
-@Repository(value="userMapper")
+@Repository(value="userDao")
 public interface UserMapper {
     
 	 /**
@@ -27,4 +27,11 @@ public interface UserMapper {
      */
     public String queryPasswordByUserId(String userName);
     
+    /**
+     * 校验当前的用户是否存在
+     * 
+     * @param name
+     * @return
+     */
+    public int queryUserNameIsExists(String name);
 }

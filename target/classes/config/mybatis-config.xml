@@ -4,12 +4,10 @@
 
 <configuration>
      <typeAliases>
-        <typeAlias type="com.yongcheng.liuyang.model.Goods" alias="goods"/>
-    	<typeAlias type="com.yongcheng.liuyang.model.UserInfo" alias="user"/>
+    	<typeAlias type="com.yongcheng.liuyang.model.AccountInfo" alias="user"/>
     </typeAliases>
     
     <mappers>
-        <mapper resource="com/yongcheng/liuyang/dao/impl/GoodMapper.xml"/>
-        <mapper resource="com/yongcheng/liuyang/dao/impl/UserMappe.xml"/>
+        <mapper resource="com/yongcheng/liuyang/dao/impl/UserMapper.xml"/>
     </mappers>
 </configuration>

@@ -1,13 +1,35 @@
 USE yongchen;
 
 DROP TABLE IF EXISTS account_info ;
-
 /*用户信息表*/
-CREATE TABLE account_info(
+CREATE TABLE sys_user(
 id INT(10) AUTO_INCREMENT PRIMARY KEY,
 user_id VARCHAR(20) NOT NULL ,  -- 账号
 user_pass VARCHAR(20) NOT NULL  -- 密码
 )ENGINE=INNODB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+
+DROP TABLE IF EXISTS sys_role_info;
+/*创建角色表*/
+CREATE TABLE role_info(
+id INT(10) AUTO_INCREMENT PRIMARY KEY,
+role_id INT(1) NOT NULL,
+role_name VARCHAR(10) NOT NULL,
+)ENGINE=INNODB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+DROP TABLE IF exists sys_permission;
+/*创建系统权限表*/ 
+id INT(10) AUTO_INCREMENT PRIMARY KEY,
+moudle_id varchar(10) NOT NULL,
+moudle_name varchar(20) NOT NULL,
+parent_id varchar(10) NOT NULL,
+
+
+
+
+
+DROP TABLE IF exists user_permission;
+/*创建用户权限*/
 
 
 /*患者信息表*/
@@ -41,12 +63,4 @@ creator varchar(20) not null,
 create_department int
 )ENGINE=INNODB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-
-DROP TABLE IF EXISTS role_info;
-/*创建角色表*/
-CREATE TABLE role_info(
-id INT(10) AUTO_INCREMENT PRIMARY KEY,
-role_id INT(1) NOT NULL,
-role_name VARCHAR(10) NOT NULL,
-)ENGINE=INNODB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 

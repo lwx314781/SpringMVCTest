@@ -14,7 +14,7 @@ header{
 	width: 100%;
 	height: 170px;
 	padding: 20px 0;
-	background:url(../img/banner_bg.html) repeat;
+	background:url(../images/banner_bg.html) repeat;
 }
 .header_item{
 	
@@ -86,14 +86,14 @@ header{
 
 
 .login_wrap{
-	background: url(../img/logo_bg.jpg) no-repeat center;
+	background: url(../images/logo_bg.jpg) no-repeat center;
 	background-size: 100%;
 }
 .logo{
 	width: 500px;
 	height: 150px;
 	margin: 0px auto;
-	background: url(../img/logowz.png) no-repeat center;
+	background: url(../images/logowz.png) no-repeat center;
 }
 .login_box{
 	width: 360px;
@@ -176,5 +176,23 @@ header{
 
 .other_right a:hover{
 	color:#AEEEEE;
+}
+
+.txt_tips{
+	float: right;
+	margin: -30px -100px 0px 0px;
+}
+.txt_tips_error{
+	
+	background: #e7f0ee;
+	font-size: 15px;
+	color: #f0163d;
+}
+.hidden{
+	display: none;
+}
+
+.txt_tips_ok{
+	background: url("../images/icon01.gif");
 }
 

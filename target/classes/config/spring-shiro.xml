@@ -25,7 +25,8 @@
         <property name="filterChainDefinitions">
             <value>
                 <!-- 对静态资源设置匿名访问 -->
-                 /jsp/**,/js/**,/images/**,/fonts/** = anon
+                 /register.jsp = anon
+                 /validateName = anon
                 <!-- 主页登录访问 -->
                 /index.action = authc
             </value>

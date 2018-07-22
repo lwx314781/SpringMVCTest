@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.yongcheng.liuyang.dao.UserMapper">
      
      <!--  -->
-     <select id="queryUserByName" parameterType="String" resultType="user">
+     <select id="queryPasswordByUserId" parameterType="String" resultType="user">
          select 
          	user_id as userId,
          	user_pass as password
@@ -16,8 +16,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      
      <!-- 用户注册 -->
      <insert id="insertUserInfo" parameterType="user">
-         insert into 
+         insert into account_info (user_id,user_pass) values(#{userId},#{password})
      </insert>
      
+     <select id="queryUserNameIsExists" parameterType="String" resultType="int">
+         select count(0) from account_info where user_id = #{userName}
+     </select>
      
 </mapper>
